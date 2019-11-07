@@ -5,7 +5,7 @@ let pool = require('../models/dbconnection')
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  sql = "SELECT * FROM board.board;"
+  sql = "SELECT `id`, `title`, `author`, DATE_FORMAT(regdate, '%Y\/%c\/%e') AS regdate2, `hit` FROM board.board;"
   pool.getConnection((err, conn) => {
     if (err) return next(err)
     conn.query( sql, [], (err,docs) => {
@@ -16,9 +16,29 @@ router.get('/', function(req, res, next) {
       }
       console.log(data)
       conn.release() // DB를 다 썼으면 반납해야지?
-      res.render('index', { title: data.title });
+      res.render('index', data);
     })
   })
 });
+
+router.get('/read/:id', (req, res, next) => {
+  let id = req.params.id
+  
+  pool.getConnection((err, conn) => {
+    if(err) return next(err)
+    sql = "SELECT `id`, `title`, `author`, DATE_FORMAT(regdate, '%Y\/%c\/%e') AS regdate2,`content`, `hit` FROM board.board WHERE id = ?;"
+
+    conn.query(sql, [id], (err, row) => {
+      if(err) return next(err)
+      // console.log(row[0])
+      let data = {
+        "rows" : row[0],
+        "title" : "게시판 읽기"
+      }
+      conn.release()
+      res.render('read', data)
+    })
+  })
+})
 
 module.exports = router;

@@ -16,10 +16,10 @@
       </tr>
       <% for (var i = 0; i<rows.length; i++) {%>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><a href="/read/<%= rows[i].id %>"> <%= rows[i].title %></a></td>
+        <td><%= rows[i].author %></td>
+        <td><%= rows[i].regdate2 %></td>
+        <td><%= rows[i].hit %></td>
       </tr>
       <% } %>
     </table>

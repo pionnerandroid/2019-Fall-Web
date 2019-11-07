@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <a href="/">글 리스트로 돌아가기</a>
+    <table>
+        <tr>
+            <th>제목</th>
+            <td><%= rows.title %></td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td><%= rows.author %></td>
+        </tr>
+        <tr>
+            <th>날짜</th>
+            <td><%= rows.regdate2 %></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td><%= rows.content %></td>
+        </tr>
+        <tr>
+            <th>조회수</th>
+            <td><%= rows.hit %></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td></td>
+        </tr>
+    </table>
+  </body>
+</html>

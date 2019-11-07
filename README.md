@@ -30,6 +30,11 @@ Node.js와 MySQL을 이용해서 CRUD 게시판을 직접 구현하고 동작 �
   * RESTful API
   * 라우팅
   * 웹에서의 CRUD
+  * https://docs.google.com/presentation/d/1Vvu7vmu5--YNUB9XHIL9RL4B4l8e1K8E7yGxGsBXCp0/edit?usp=sharing
+
+* 5주차
+  * 웹에서 Read 구현
+  * 발표자료 없음
 
 ## Leader
 * Sung Chan Hwang (@plzprayme)
