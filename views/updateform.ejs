@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <a href="/">글 리스트로 돌아가기</a>
+    <form action="/update" method="POST">
+        <input type="hidden" name="id" value="<%=rows.id%>">
+            <table>
+                <tr>
+                    <th>제목</th>
+                    <td>
+                        <input type="text" name="title" size="30" maxlength="50" value="<%= rows.title %>">
+                    </td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td>
+                        <input type="text" name="author" size="10" maxlength="20" value="<%= rows.author %>">
+                    </td>
+                </tr>
+                <tr>
+                        <th>비밀번호</th>
+                        <td>
+                            <input type="password" name="pw" size="10" maxlength="20">
+                        </td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>
+                        <textarea name="content" cols="30" rows="5" ><%= rows.content %></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right"> 
+                        <input type="submit" value="수정">
+                        <input type="reset" value="취소">
+                    </td>
+                </tr>
+            </table>
+    </form>
+  </body>
+</html>

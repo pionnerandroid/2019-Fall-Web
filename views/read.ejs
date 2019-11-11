@@ -3,6 +3,14 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+        function updateform(){
+            location.href = "/updateform/<%=rows.id%>"
+        }
+        function deleteform(){
+            location.href = "/deleteform/<%=rows.id%>"
+        }
+    </script>
   </head>
   <body>
     <h1><%= title %></h1>
@@ -29,8 +37,10 @@
             <td><%= rows.hit %></td>
         </tr>
         <tr>
-            <th></th>
-            <td></td>
+            <td colspan="2" align="right"> 
+                <input type="button" value="수정" onClick="updateform()">
+                <input type="button" value="삭제" onClick="deleteform()">
+            </td>
         </tr>
     </table>
   </body>

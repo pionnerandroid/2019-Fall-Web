@@ -36,6 +36,10 @@ Node.js와 MySQL을 이용해서 CRUD 게시판을 직접 구현하고 동작 �
   * 웹에서 Read 구현
   * 발표자료 없음
 
+* 6주차
+  * 웹에서 Update 구현
+  * 발표자료 없음
+
 ## Leader
 * Sung Chan Hwang (@plzprayme)
 * Email: dbfpzk142@gmail.com
