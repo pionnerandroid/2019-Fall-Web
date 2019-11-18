@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <script type="text/javascript">
+        function check() {
+            if(delform.pw.value == ""){
+                alert("비밀번호를 입력해주세요.");
+                delform.pw.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <a href="/">글 리스트로 돌아가기</a>
+    <form action="/delete" name="delform" method="post">
+        <table>
+            <tr>
+                <th>비밀번호</th>
+                <td>
+                    <input type="hidden" name="id" value="<%= id%>">
+                    <input type="password" name="pw" size="20" max_length="20">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <input type="submit" value="삭제" onClick="return check()">
+                    <input type="reset" value="취소">
+                </td>
+
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+

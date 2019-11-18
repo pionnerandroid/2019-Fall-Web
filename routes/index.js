@@ -91,4 +91,63 @@ router.post('/update', (req,res,next) => {
 
 })
 
+router.get('/writeform', (req, res, next) => {
+  res.render('writeform', { title: '연습장'})
+})
+
+router.post('/write', (req, res, next) => {
+  let title = req.body.title
+  let author = req.body.author
+  let pw = req.body.pw
+  let content = req.body.content
+
+  arr = [title, author, pw, content]
+
+  let sql = 'INSERT INTO board (title, author, regdate, pw, content, hit) VALUES (?,?,now(),?,?,0)'
+
+  pool.getConnection((err, conn) =>{
+    if (err) {
+      return next(err)
+    } else {
+      conn.query(sql, arr, (err,row) =>{
+        if(err){
+          return next(err)
+        } else {
+          console.log('row = ', row)
+          
+          res.redirect('/')
+        } conn.release()
+      })
+    }
+  })
+})
+
+router.get('/deleteform/:id', (req,res) => {
+  let id = req.params.id
+  let data = {
+    "id" : id,
+    "title" : "게시글 삭제"
+  }
+  res.render('deleteform', data)
+})
+
+router.post('/delete',(req, res, next) => {
+
+  let id = req.body.id
+  let pw = req.body.pw
+  
+  pool.getConnection((err, conn) => { 
+  if (err) return next(err)
+  else{
+    let sql = 'DELETE FROM board WHERE id=? AND pw=?'
+    conn.query(sql, [id, pw], (err,row) =>{
+      console.log('update row = ', row)
+      if (row.affectedRows == 1)
+        res.redirect('/')
+      else
+        res.send('<script> alert("비밀번호가 틀려서 되돌아 갑니다."); history.back(); </script>')
+    })
+  }})
+})
+
 module.exports = router;
