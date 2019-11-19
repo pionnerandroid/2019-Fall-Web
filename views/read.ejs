@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script type="text/javascript">
-        function updateform(){
-            location.href = "/updateform/<%=rows.id%>"
+        function updateform() {
+            location.href = "/updateform/<%=rows.no%>";
         }
-        function deleteform(){
-            location.href = "/deleteform/<%=rows.id%>"
+
+        function deleteform() {
+            location.href = "/deleteform/<%=rows.no%>";
         }
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1><%= title %></h1>
     <a href="/">글 리스트로 돌아가기</a>
     <table>
         <tr>
             <th>제목</th>
-            <td><%= rows.title %></td>
+            <td>
+                <%= rows.title %>
+            </td>
         </tr>
+        <!-- tr>th{이름}+td>input[type=name] -->
         <tr>
             <th>이름</th>
             <td><%= rows.author %></td>
@@ -37,11 +43,12 @@
             <td><%= rows.hit %></td>
         </tr>
         <tr>
-            <td colspan="2" align="right"> 
+            <td colspan="2" align="right">
                 <input type="button" value="수정" onClick="updateform()">
-                <input type="button" value="삭제" onClick="deleteform()">
+                <input type="button" value="삭제" onclick="deleteform()">
             </td>
         </tr>
     </table>
-  </body>
+</body>
+
 </html>

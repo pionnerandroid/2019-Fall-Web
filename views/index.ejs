@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <a href="/writeform">글쓰기</a>
-    <table>
-      <tr>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>날짜</th>
-        <th>조회수</th>
-      </tr>
-      <% for (var i = 0; i<rows.length; i++) {%>
-      <tr>
-        <td><a href="/read/<%= rows[i].id %>"> <%= rows[i].title %></a></td>
-        <td><%= rows[i].author %></td>
-        <td><%= rows[i].regdate2 %></td>
-        <td><%= rows[i].hit %></td>
-      </tr>
-      <% } %>
-    </table>
-  </body>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <a href="/writeform">글쓰기</a>
+  <table>
+    <col width="30%">
+    <col width="10%">
+    <col width="12%">
+    <col width="5%">
+    <tr>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>날짜</th>
+      <th>조회수</th>
+    </tr>
+    <% for(var i = 0; i<rows.length; i++) {%>
+    <tr>
+      <td><a href="/read/<%= rows[i].no %>"> <%=rows[i].title%> </a></td>
+      <td><%=rows[i].author%></td>
+      <td><%=rows[i].regdate2%></td>
+      <td><%=rows[i].hit%></td>
+    </tr>
+    <% } %>
+  </table>
+</body>
+
 </html>
